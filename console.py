@@ -50,7 +50,7 @@ def configure():
     print(CBLUE + logo.logos.configure)
     write(BYELLOW + "Ready for some configuration?", bs)
     time.sleep(2)
-    os.system("notepad index.js")
+    os.system("notepad discordrpc.js")
     input(BYELLOW + "Press enter to continue")
     main()
 
@@ -62,7 +62,7 @@ def helpfnc():
     write(CBLUE + "\n- launch: Launches the DiscordRPC, giving it to life!", bs)
     write(CBLUE + "\n- configure: Configures the DiscordRPC, give it a personality!", bs)
     write(CBLUE + "\n- invislaunch: launch the program with no cmd", bs)
-    write(CBLUE + "\n- stop: stop the running invislaunch cmd")
+    write(CBLUE + "\n- stop: stop the running invislaunch cmd", bs)
     print(" ")
     input(BYELLOW + "\nPress enter to continue:D")
     main()
