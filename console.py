@@ -3,6 +3,7 @@ import sys
 import psutil
 import logo
 import time
+import colors
 
 def write(phrase, speed):
     for char in phrase:
@@ -19,7 +20,26 @@ bs = 0.00000001
 nodefile = "node.exe"
 currentdirectory = os.getcwd()
 
+os.system("title D")
+time.sleep(bs)
+os.system("title Di")
+time.sleep(bs)
+os.system("title Dis")
+time.sleep(bs)
+os.system("title Disc")
+time.sleep(bs)
+os.system("title Disco")
+time.sleep(bs)
+os.system("title Discor")
+time.sleep(bs)
+os.system("title Discord")
+time.sleep(bs)
+os.system("title DiscordR")
+time.sleep(bs)
+os.system("title DiscordRP")
+time.sleep(bs)
 os.system("title DiscordRPC")
+
 
 class commands(): 
     launch = "launch"
@@ -48,6 +68,7 @@ def invislaunch():
     invisiblepath = currentdirectory + "\invisible.vbs"
     invisrunbatch = currentdirectory + "\invisrun.bat"
     os.system("cls")
+    os.system("title Discord RPC ^| Background Launch")
     print(CBLUE + logo.logos.invislaunch)
     write(BYELLOW + "Launching....", bs)
     os.system("wscript.exe " + invisiblepath +  " " + invisrunbatch)
@@ -99,11 +120,12 @@ def main():
     if checkIfProcessRunning("node.exe"):
         write(BYELLOW + "\nDiscordRPC Status: " + GREEN + " Running", bs)
     else:
-        write(BYELLOW + "\nDiscordRPC Status: " + RED + " Offline", bs)     
+        write(BYELLOW + "\nDiscordRPC Status: " + RED + " Offline", bs) 
     write(BYELLOW + "\nDon't know what to do? Run" + GREEN + " 'help'", bs)
+    write(BYELLOW + "\nMade with <3 by Kingss", bs)
     print(" ")
     print(" ")
-    commandline = input(BYELLOW + "DiscordRPC > ")
+    commandline = input(colors.s.CBLUE2 + "Discord" + colors.s.CGREEN2 + "RPC" + BYELLOW + " > ")
     if commandline == commands.help:
         helpfnc()
     if commandline == commands.launch: 
