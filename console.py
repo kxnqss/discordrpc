@@ -48,8 +48,11 @@ def launch():
     write(BYELLOW + "Launching...", bs)
     time.sleep(1)
     try: 
-        os.system("node index.js")
-        write(GREEN + "\nLaunched succesfully!", bs)
+        os.system("node discordrpc.js")
+        write(CBLUE + "\nFailed to launch.", bs)
+        input(CBLUE + "Press enter to continue")
+        time.sleep(0.5)
+        main()
     except:
         write(RED + "Something went wrong... Make sure to have done file configuration!", bs) 
         input()

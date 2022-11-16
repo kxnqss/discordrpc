@@ -1,10 +1,10 @@
 
-var applicationID = "your application id"
-var details_content = "details"
-var largeimg = "ur image"
+var applicationID = "1042078360861425705"
+var details_content = "detail bro"
+var largeimg = "piscio"
 var largetext = "ur text"
 var bt1_text = "ur button text"
-var bt1_url = "ur button link"
+var bt1_url = "https://www.google.com"
 
 var rpc = require("discord-rpc")
 const client = new rpc.Client({ transport: 'ipc' })
