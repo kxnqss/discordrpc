@@ -28,7 +28,6 @@ class commands():
     invisiblelaunch = "invislaunch"
     stop = "stop"
 
-
 def stopinvis(): 
     for proc in psutil.process_iter():
         if proc.name() == nodefile:
@@ -54,7 +53,7 @@ def configure():
     os.system("notepad index.js")
     input(BYELLOW + "Press enter to continue")
     main()
-    
+
 def helpfnc():
     os.system("cls")
     print(CBLUE + logo.logos.help)
@@ -62,7 +61,8 @@ def helpfnc():
     print(" ")
     write(CBLUE + "\n- launch: Launches the DiscordRPC, giving it to life!", bs)
     write(CBLUE + "\n- configure: Configures the DiscordRPC, give it a personality!", bs)
-    write(CBLUE + "\n- invislaunch: launch the program with no cmd")
+    write(CBLUE + "\n- invislaunch: launch the program with no cmd", bs)
+    write(CBLUE + "\n- stop: stop the running invislaunch cmd")
     print(" ")
     input(BYELLOW + "\nPress enter to continue:D")
     main()
@@ -105,5 +105,5 @@ def main():
         print("wrong command")
         time.sleep(1)
         main()        
-    
+
 main()
