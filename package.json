@@ -2,7 +2,7 @@
   "name": "discord-rpc",
   "version": "1.0.0",
   "description": "Discord RPC",
-  "main": "index.js",
+  "main": "discordrpc.js",
   "dependencies": {
     "discord-rpc": "git+https://github.com/djs/discord-rpc.git",
     "discord.js": "^12.5.1",
