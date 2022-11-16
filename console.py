@@ -1,5 +1,6 @@
 import os 
 import sys 
+import psutil
 import logo
 import time
 
@@ -15,12 +16,35 @@ RED = '\33[32m'
 CBLUE   = '\33[94m'
 bs = 0.000000001
 
+nodefile = "node.exe"
+currentdirectory = os.getcwd()
+
 os.system("title DiscordRPC")
 
 class commands(): 
     launch = "launch"
     configure = "configure"
     help = "help"
+    invisiblelaunch = "invislaunch"
+    stop = "stop"
+
+
+def stopinvis(): 
+    for proc in psutil.process_iter():
+        if proc.name() == nodefile:
+            proc.kill()
+    time.sleep(2)
+    main()
+
+def invislaunch(): 
+    invisiblepath = currentdirectory + "\invisible.vbs"
+    invisrunbatch = currentdirectory + "\invisrun.bat"
+    os.system("cls")
+    print(CBLUE + logo.logos.invislaunch)
+    write(BYELLOW + "Launching....", bs)
+    os.system("wscript.exe " + invisiblepath +  " " + invisrunbatch)
+    time.sleep(3)
+    main()
 
 def configure(): 
     os.system("cls")
@@ -38,6 +62,7 @@ def helpfnc():
     print(" ")
     write(CBLUE + "\n- launch: Launches the DiscordRPC, giving it to life!", bs)
     write(CBLUE + "\n- configure: Configures the DiscordRPC, give it a personality!", bs)
+    write(CBLUE + "\n- invislaunch: launch the program with no cmd")
     print(" ")
     input(BYELLOW + "\nPress enter to continue:D")
     main()
@@ -72,6 +97,10 @@ def main():
         launch()
     if commandline == commands.configure:
         configure()
+    if commandline == commands.invisiblelaunch:
+        invislaunch()
+    if commandline == commands.stop: 
+        stopinvis()
     else:
         print("wrong command")
         time.sleep(1)
