@@ -12,9 +12,9 @@ def write(phrase, speed):
 
 BYELLOW = '\033[93m'
 GREEN  = '\33[92m'
-RED = '\33[32m'
+RED    = '\33[31m'
 CBLUE   = '\33[94m'
-bs = 0.000000001
+bs = 0.00000001
 
 nodefile = "node.exe"
 currentdirectory = os.getcwd()
@@ -27,6 +27,15 @@ class commands():
     help = "help"
     invisiblelaunch = "invislaunch"
     stop = "stop"
+
+def checkIfProcessRunning(processName):
+    for proc in psutil.process_iter():
+        try:
+            if processName.lower() in proc.name().lower():
+                return True
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    return False
 
 def stopinvis(): 
     for proc in psutil.process_iter():
@@ -86,7 +95,11 @@ def main():
     os.system("cls")
     global commandline
     print(CBLUE + logo.logos.discordrpclogo)
-    write(BYELLOW + "Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs) 
+    write(BYELLOW + "Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs)
+    if checkIfProcessRunning("node.exe"):
+        write(BYELLOW + "\nDiscordRPC Status: " + GREEN + " Running", bs)
+    else:
+        write(BYELLOW + "\nDiscordRPC Status: " + RED + " Offline", bs)     
     write(BYELLOW + "\nDon't know what to do? Run" + GREEN + " 'help'", bs)
     print(" ")
     print(" ")
