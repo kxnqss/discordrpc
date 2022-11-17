@@ -47,15 +47,15 @@ class commands():
     help = "help"
     invisiblelaunch = "invislaunch"
     stop = "stop"
-    library = "install-library"
+    library = "libinstall"
 
 def libinstall(): 
+    print(" ")
     os.system("title DiscordRPC ^| Installing PSUTIL")
     os.system("pip install psutil")
     time.sleep(5)
     main()
     
-
 def checkIfProcessRunning(processName):
     for proc in psutil.process_iter():
         try:
@@ -123,6 +123,7 @@ def launch():
 
 def main():
     os.system("cls")
+    os.system("title DiscordRPC")
     global commandline
     print(CBLUE + logo.logos.discordrpclogo)
     write(BYELLOW + "Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs)
