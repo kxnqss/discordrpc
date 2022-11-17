@@ -47,6 +47,14 @@ class commands():
     help = "help"
     invisiblelaunch = "invislaunch"
     stop = "stop"
+    library = "install-library"
+
+def libinstall(): 
+    os.system("title DiscordRPC ^| Installing PSUTIL")
+    os.system("pip install psutil")
+    time.sleep(5)
+    main()
+    
 
 def checkIfProcessRunning(processName):
     for proc in psutil.process_iter():
@@ -93,6 +101,7 @@ def helpfnc():
     write(CBLUE + "\n- configure: Configures the DiscordRPC, give it a personality!", bs)
     write(CBLUE + "\n- invislaunch: launch the program with no cmd", bs)
     write(CBLUE + "\n- stop: stop the running invislaunch cmd", bs)
+    write(CBLUE + "\n- libinstall: install required py libraries (psutil)", bs)
     print(" ")
     input(BYELLOW + "\nPress enter to continue:D")
     main()
@@ -136,6 +145,8 @@ def main():
         invislaunch()
     if commandline == commands.stop: 
         stopinvis()
+    if commandline == commands.library: 
+        libinstall()        
     else:
         print("wrong command")
         time.sleep(1)
