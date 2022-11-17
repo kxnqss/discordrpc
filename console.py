@@ -149,7 +149,8 @@ def main():
     if commandline == commands.library: 
         libinstall()        
     else:
-        print("wrong command")
+        print(" ")
+        write(RED + "This command doesn't exist!", bs)
         time.sleep(1)
         main()        
 
