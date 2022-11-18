@@ -3,6 +3,7 @@ import sys
 import psutil
 import logo
 import time
+import requests
 import colors
 import webbrowser
 
@@ -18,6 +19,8 @@ RED    = '\33[31m'
 github = "https://github.com/Kingssxd/discordrpc"
 CBLUE   = '\33[94m'
 bs = 0.00000001
+updatelink = "https://raw.githubusercontent.com/Kingssxd/discordrpc/main/update.txt"
+version = 1.1
 
 nodefile = "node.exe"
 currentdirectory = os.getcwd()
@@ -52,6 +55,22 @@ class commands():
     github = "github"
     update = "update"
     settings = "settings"
+
+def update():
+    os.system("cls")
+    print(CBLUE + logo.logos.update)
+    response = requests.get(updatelink)
+    source_code = response.content
+    resp = (int(source_code.decode('utf-8')))
+    if resp == 0:
+        write(BYELLOW + "No update required :D", bs)
+        input(BYELLOW + "\nPress enter to continue ^^")
+        main()
+    else:
+        write(BYELLOW + "\nUpdate available", bs)
+        write(BYELLOW + f"\nDownload new version at {github}", bs)
+        input(BYELLOW + "\nPress enter to continue ^^")
+    input()
 
 def githubi(): 
     os.system("cls")
@@ -149,6 +168,7 @@ def main():
         write(BYELLOW + "\nDiscordRPC Status: " + GREEN + " Running", bs)
     else:
         write(BYELLOW + "\nDiscordRPC Status: " + RED + " Offline", bs) 
+    write(BYELLOW + "\nCurrent version: " + CBLUE + str(version), bs)
     write(BYELLOW + "\nDon't know what to do? Run" + GREEN + " 'help'", bs)
     write(BYELLOW + "\nMade with <3 by Kingss", bs)
     print(" ")
@@ -168,6 +188,8 @@ def main():
         libinstall()     
     if commandline == commands.github: 
         githubi()   
+    if commandline == commands.update:
+        update()
     else:
         print(" ")
         write(RED + "This command doesn't exist!", bs)
