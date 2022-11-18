@@ -61,8 +61,10 @@ def update():
     print(CBLUE + logo.logos.update)
     response = requests.get(updatelink)
     source_code = response.content
-    resp = (int(source_code.decode('utf-8')))
-    if resp < version:
+    resp = source_code.split("point")
+    v1 = resp[1]
+    v2 = resp[2]
+    if v1 and v2 < version:
         write(BYELLOW + "No update required :D", bs)
         input(BYELLOW + "\nPress enter to continue ^^")
         main()
@@ -196,4 +198,4 @@ def main():
         time.sleep(1)
         main()        
 
-main()
+update()
