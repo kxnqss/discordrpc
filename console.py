@@ -7,11 +7,18 @@ import requests
 import colors
 import webbrowser
 
+class appsettings():
+    usingwrite = True 
+
 def write(phrase, speed):
-    for char in phrase:
-      time.sleep(speed)
-      sys.stdout.write(char)
-      sys.stdout.flush()  
+    if appsettings.usingwrite == False: 
+        phraseBackspace = phrase.replace("\n", "")
+        print(phraseBackspace)
+    else: 
+        for char in phrase:
+            time.sleep(speed)
+            sys.stdout.write(char)
+            sys.stdout.flush()  
 
 BYELLOW = '\033[93m'
 GREEN  = '\33[92m'
@@ -25,25 +32,28 @@ version = 1.1
 nodefile = "node.exe"
 currentdirectory = os.getcwd()
 
-os.system("title D")
-time.sleep(bs)
-os.system("title Di")
-time.sleep(bs)
-os.system("title Dis")
-time.sleep(bs)
-os.system("title Disc")
-time.sleep(bs)
-os.system("title Disco")
-time.sleep(bs)
-os.system("title Discor")
-time.sleep(bs)
-os.system("title Discord")
-time.sleep(bs)
-os.system("title DiscordR")
-time.sleep(bs)
-os.system("title DiscordRP")
-time.sleep(bs)
-os.system("title DiscordRPC")
+if appsettings.usingwrite == False:
+    os.system("title DiscordRPC")
+else: 
+    os.system("title D")
+    time.sleep(bs)
+    os.system("title Di")
+    time.sleep(bs)
+    os.system("title Dis")
+    time.sleep(bs)
+    os.system("title Disc")
+    time.sleep(bs)
+    os.system("title Disco")
+    time.sleep(bs)
+    os.system("title Discor")
+    time.sleep(bs)
+    os.system("title Discord")
+    time.sleep(bs)
+    os.system("title DiscordR")
+    time.sleep(bs)
+    os.system("title DiscordRP")
+    time.sleep(bs)
+    os.system("title DiscordRPC")
 
 class commands(): 
     launch = "launch"
@@ -54,7 +64,6 @@ class commands():
     library = "libinstall"
     github = "github"
     update = "update"
-    settings = "settings"
 
 def update():
     os.system("cls")
@@ -163,7 +172,7 @@ def main():
     write(BYELLOW + "\nMade with <3 by Kingss", bs)
     print(" ")
     print(" ")
-    commandline = input(colors.s.CBLUE2 + "Discord" + colors.s.CGREEN2 + "RPC" + BYELLOW + " > ")
+    commandline = input("DiscordRPC > ")
     if commandline == commands.help:
         helpfnc()
     if commandline == commands.launch: 
@@ -184,4 +193,4 @@ def main():
         time.sleep(1)
         main()        
 
-update()
+main()
