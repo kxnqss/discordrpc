@@ -62,15 +62,15 @@ def update():
     response = requests.get(updatelink)
     source_code = response.content
     resp = (int(source_code.decode('utf-8')))
-    if resp == 0:
+    if resp < version:
         write(BYELLOW + "No update required :D", bs)
         input(BYELLOW + "\nPress enter to continue ^^")
         main()
-    else:
+    if resp > version:
         write(BYELLOW + "\nUpdate available", bs)
         write(BYELLOW + f"\nDownload new version at {github}", bs)
         input(BYELLOW + "\nPress enter to continue ^^")
-    input()
+        main()
 
 def githubi(): 
     os.system("cls")
