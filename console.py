@@ -59,20 +59,8 @@ class commands():
 def update():
     os.system("cls")
     print(CBLUE + logo.logos.update)
-    response = requests.get(updatelink)
-    source_code = response.content
-    resp = source_code.split("point")
-    v1 = resp[1]
-    v2 = resp[2]
-    if v1 and v2 < version:
-        write(BYELLOW + "No update required :D", bs)
-        input(BYELLOW + "\nPress enter to continue ^^")
-        main()
-    if resp > version:
-        write(BYELLOW + "\nUpdate available", bs)
-        write(BYELLOW + f"\nDownload new version at {github}", bs)
-        input(BYELLOW + "\nPress enter to continue ^^")
-        main()
+    write("at the moment not available")
+    input("press enter to continue")
 
 def githubi(): 
     os.system("cls")
@@ -190,8 +178,6 @@ def main():
         libinstall()     
     if commandline == commands.github: 
         githubi()   
-    if commandline == commands.update:
-        update()
     else:
         print(" ")
         write(RED + "This command doesn't exist!", bs)
