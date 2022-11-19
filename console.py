@@ -5,11 +5,12 @@ import logo
 import time
 import requests
 import colors
-import settings
+from settings import app
 import webbrowser
 
 class appsettings():
-    usingwrite = settings.app.usingwrite 
+    usingwrite = app.usingwrite
+    usingcolors = app.usingcolors
 
 def write(phrase, speed):
     if appsettings.usingwrite == False: 
@@ -21,11 +22,18 @@ def write(phrase, speed):
             sys.stdout.write(char)
             sys.stdout.flush()  
 
-BYELLOW = '\033[93m'
-GREEN  = '\33[92m'
-RED    = '\33[31m'
-github = "https://github.com/Kingssxd/discordrpc"
-CBLUE   = '\33[94m'
+if appsettings.usingcolors == True: 
+    BYELLOW = '\033[93m'
+    GREEN  = '\33[92m'
+    RED    = '\33[31m'
+    CBLUE   = '\33[94m'
+else: 
+    BYELLOW = ""
+    GREEN  = ""
+    RED    = ""
+    CBLUE   = "" 
+
+github = "https://github.com/Kingssxd/discordrpc"    
 bs = 0.00000001
 updatelink = "https://raw.githubusercontent.com/Kingssxd/discordrpc/main/update.txt"
 version = 1.1
@@ -64,7 +72,17 @@ class commands():
     stop = "stop"
     library = "libinstall"
     github = "github"
+    settings = "settings"
     update = "update"
+
+def settings(): 
+    os.system("cls")
+    print(CBLUE + logo.logos.settings)    
+    write(BYELLOW + "Ready for some configuration?", bs)
+    time.sleep(1)
+    os.system("notepad settings.py")
+    input(BYELLOW + "\nPress enter to continue")
+    main()    
 
 def update():
     os.system("cls")
@@ -123,9 +141,9 @@ def configure():
     os.system("cls")
     print(CBLUE + logo.logos.configure)
     write(BYELLOW + "Ready for some configuration?", bs)
-    time.sleep(2)
+    time.sleep(1)
     os.system("notepad discordrpc.js")
-    input(BYELLOW + "Press enter to continue")
+    input(BYELLOW + "\nPress enter to continue")
     main()
 
 def helpfnc():
@@ -187,7 +205,9 @@ def main():
     if commandline == commands.library: 
         libinstall()     
     if commandline == commands.github: 
-        githubi()   
+        githubi()
+    if commandline == commands.settings:
+        settings()   
     else:
         print(" ")
         write(RED + "This command doesn't exist!", bs)
