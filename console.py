@@ -5,10 +5,11 @@ import logo
 import time
 import requests
 import colors
+import settings
 import webbrowser
 
 class appsettings():
-    usingwrite = True 
+    usingwrite = settings.app.usingwrite 
 
 def write(phrase, speed):
     if appsettings.usingwrite == False: 
