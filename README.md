@@ -4,8 +4,8 @@ customize your discord profile with beatiful buttons, images, and text 🔥
 # How to download 
 All you need is [NodeJS](https://nodejs.org/en/) and [Python](https://www.python.org)
 
-# Required python libraries
-You need **psutil**, after you installed python run: **pip install psutil** 
+# How do I run the program? 
+open your console, and inside of the folder type "run"
 
 # How do i get an application id?
 Head over to [discord developer portal](https://discord.com/developers/applications), 
