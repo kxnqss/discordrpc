@@ -96,32 +96,42 @@ class commands():
     update = "update"
 
 def settings(): 
-    os.system("cls")
-    write(Fore.WHITE + "Ready for some configuration?", bs)
-    time.sleep(1)
-    os.system("notepad settings.py")
-    input(Fore.WHITE + "\nPress enter to continue")
-    main()    
+    print(" ")
+    text = (Colorate.Horizontal(Colors.purple_to_blue, "configuration?", 2))
+    usingWriteSetting = (Colorate.Horizontal(Colors.purple_to_blue, "using-write: ", 2))
+    write(Fore.RESET + f"» [{Fore.GREEN}⚙️{Fore.RESET}] Ready for some {text}{Fore.RESET}", bs)
+    time.sleep(0.2)
+    write(Fore.RESET + f"{Fore.RESET}» [{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] Current Settings:", bs)
+    write(Fore.RESET + f"» [{Fore.CYAN}-{Fore.RESET}] {usingWriteSetting}{Fore.RESET}{appsettings.usingwrite}", bs)
+    print(Fore.RESET + f"» [{Fore.RED}!{Fore.RESET}] Waiting for any key..")
+    os.system("pause > nul")
+    main() 
 
 def githubi(): 
-    os.system("cls")
-    write(Fore.WHITE + f"GitHub: {github}", bs)
-    write(Fore.WHITE + "\nPress 1 to open link, press enter to cotinue.", bs)
-    choice = input("\n > ")
-    if int(choice) == 1:
-        os.system(f"start \"\" {github}")
-        main()
-    else: 
-        time.sleep(0.1)
-        main()
+    print(" ")
+    text = (Colorate.Horizontal(Colors.purple_to_blue, "GitHub: ", 2))
+    n1 = (Colorate.Horizontal(Colors.purple_to_blue, "1", 2))
+    write(Fore.RESET + f"[{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] {text}: {github}", bs)
+    write(Fore.RESET + f"\nEnter {n1}{Fore.RESET} to open repository", bs)
+    print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
+    os.system("pause > nul")
+    main()
     
 def libinstall(): 
     print(" ")
-    os.system("title DiscordRPC ^| Installing libraries")
+    text = (Colorate.Horizontal(Colors.purple_to_blue, "» Installing libraries...", 2))
+    write(Fore.RESET + f"[{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] {text}{Fore.RESET}", bs)
+    write(f"{Fore.RESET}--------------------------------------------------------------------------------", bs)
     os.system("pip install psutil")
+    os.system("py -m pip install psutil")
     os.system("pip install pystyle")
+    os.system("py -m pip install pystyle")
     os.system("pip install colorama")
-    time.sleep(3)
+    os.system("py -m pip install colorama")
+    write(f"{Fore.RESET}--------------------------------------------------------------------------------", bs)
+    time.sleep(1)
+    print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
+    os.system("pause > nul")
     main()
 
 def checkIfProcessRunning(processName):
@@ -136,7 +146,7 @@ def checkIfProcessRunning(processName):
 def stopinvis(): 
     print(" ")
     stopping = (Colorate.Horizontal(Colors.purple_to_blue, "Stopping...", 2))
-    write(Fore.WHITE + f"» [{Fore.GREEN}❌{Fore.WHITE}] {stopping}", bs)
+    write(Fore.RESET + f"» [{Fore.GREEN}❌{Fore.RESET}] {stopping}", bs)
     for proc in psutil.process_iter():
         if proc.name() == nodefile:
             proc.kill()
@@ -148,7 +158,7 @@ def invislaunch():
     invisrunbatch = currentdirectory + "\invisrun.bat"
     launching = (Colorate.Horizontal(Colors.purple_to_blue, "Invis Launching...", 2))
     print(" ")
-    write(Fore.WHITE + f"» [{Fore.GREEN}{verifiedsymbol}{Fore.WHITE}] {launching}", bs)
+    write(Fore.RESET + f"» [{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] {launching}", bs)
     os.system(f"wscript.exe {script} {invisrunbatch}")
     time.sleep(3)
     main()
@@ -156,7 +166,7 @@ def invislaunch():
 def configure(): 
     print(" ")
     text = (Colorate.Horizontal(Colors.purple_to_blue, "configuration?", 2))
-    write(Fore.WHITE + f"» [⚙️] Ready for some {text}", bs)
+    write(Fore.RESET + f"» [⚙️] Ready for some {text}", bs)
     time.sleep(1)
     os.system("notepad discordrpc.js")
     time.sleep(1)
@@ -171,7 +181,7 @@ def helpfnc():
     libinstall = (Colorate.Horizontal(Colors.purple_to_blue, "libinstall:", 2))
     github = (Colorate.Horizontal(Colors.purple_to_blue, "github:", 2))
     print(Colorate.Vertical(Colors.purple_to_blue, logos.help, 2))
-    write(Fore.RESET + f"[{Fore.CYAN}-{Fore.WHITE}] Here's a command list for you! ^^", bs)
+    write(Fore.RESET + f"[{Fore.CYAN}-{Fore.RESET}] Here's a command list for you! ^^", bs)
     print(" ")
     write(Fore.RESET + f"» {launch}{Fore.RESET} Launches the DiscordRPC, giving it to life!", bs)
     write(Fore.RESET+ f"» {configure}{Fore.RESET} Configures the DiscordRPC, give it a personality!", bs)
@@ -180,7 +190,8 @@ def helpfnc():
     write(Fore.RESET + f"» {libinstall}{Fore.RESET} install required python libraries", bs)
     write(Fore.RESET + f"» {github}{Fore.RESET} open DiscordRPC github repository", bs)
     print(" ")
-    input(Fore.RESET + f"[{Fore.RED}!{Fore.WHITE}] Waiting for enter key..")
+    print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
+    os.system("pause > nul")
     main()
 
 def launch():
@@ -188,18 +199,18 @@ def launch():
     stop = (Colorate.Horizontal(Colors.purple_to_blue, "stop!", 2))
     os.system("cls")
     print(Colorate.Vertical(Colors.purple_to_blue, logos.discordrpclogo, 2))
-    write(Fore.WHITE + f"» [{Fore.CYAN}-{Fore.WHITE}] Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs)
-    write(Fore.WHITE + f"\n» [{Fore.GREEN}{verifiedsymbol}{Fore.WHITE}] RPC Status: " + Colorate.Horizontal(Colors.blue_to_purple, "Running", 2), bs)
-    write(Fore.WHITE + f"\n» [{Fore.CYAN}-{Fore.WHITE}] Current version: " + Colorate.Horizontal(Colors.blue_to_purple, str(version), 2), bs)
-    write(Fore.WHITE + f"\n» [{Fore.GREEN}?{Fore.WHITE}] Don't know what to do? Run " + Colorate.Horizontal(Colors.blue_to_purple, "help", 2), bs)
-    write(Fore.WHITE + "\n» [" +  Colorate.Horizontal(Colors.blue_to_purple, "♥", 2) + f"] {Fore.WHITE}by {kingss}{Fore.WHITE} for {user}", bs)  
+    write(Fore.RESET + f"» [{Fore.CYAN}-{Fore.RESET}] Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs)
+    write(Fore.RESET + f"\n» [{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] RPC Status: " + Colorate.Horizontal(Colors.blue_to_purple, "Running", 2), bs)
+    write(Fore.RESET + f"\n» [{Fore.CYAN}-{Fore.RESET}] Current version: " + Colorate.Horizontal(Colors.blue_to_purple, str(version), 2), bs)
+    write(Fore.RESET + f"\n» [{Fore.GREEN}?{Fore.RESET}] Don't know what to do? Run " + Colorate.Horizontal(Colors.blue_to_purple, "help", 2), bs)
+    write(Fore.RESET + "\n» [" +  Colorate.Horizontal(Colors.blue_to_purple, "♥", 2) + f"] {Fore.RESET}by {kingss}{Fore.RESET} for {user}", bs)  
     print(" ")
-    write(Colorate.Horizontal(Colors.blue_to_purple, "rpc » ", 2) + Fore.WHITE + "launch", bs)
+    write(Colorate.Horizontal(Colors.blue_to_purple, "rpc » ", 2) + Fore.RESET + "launch", bs)
     time.sleep(0.5)
     try: 
         print(" ")
-        write(Fore.WHITE + f"» [{Fore.GREEN}{verifiedsymbol}{Fore.WHITE}] {launching}", bs)
-        write(Fore.WHITE + f"» [{Fore.GREEN}⚙️{Fore.WHITE}] Press CTRL + C to {stop}", bs)
+        write(Fore.RESET + f"» [{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] {launching}", bs)
+        write(Fore.RESET + f"» [{Fore.GREEN}⚙️{Fore.RESET}] Press CTRL + C to {stop}", bs)
         os.system("node discordrpc.js")
         write(Fore.LIGHTBLUE_EX + "\nFailed to launch.", bs)
         input(Fore.LIGHTBLUE_EX + "Press enter to continue")
@@ -236,20 +247,20 @@ def main():
     os.system("title DiscordRPC")
     global commandline
     print(Colorate.Vertical(Colors.purple_to_blue, logos.discordrpclogo, 2))
-    write(Fore.WHITE + f"» [{Fore.CYAN}-{Fore.WHITE}] Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs)
+    write(Fore.RESET + f"» [{Fore.CYAN}-{Fore.RESET}] Welcome to DiscordRPC! Here you can customize your discord profile with whatever you want! ^^", bs)
     if checkIfProcessRunning("node.exe"):
-        write(Fore.WHITE + f"\n» [{Fore.GREEN}{verifiedsymbol}{Fore.WHITE}] RPC Status: " + Colorate.Horizontal(Colors.blue_to_purple, "Running", 2), bs)
+        write(Fore.RESET + f"\n» [{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] RPC Status: " + Colorate.Horizontal(Colors.blue_to_purple, "Running", 2), bs)
     else:
-        write(Fore.WHITE + f"\n» [{Fore.RED}❌{Fore.WHITE}] RPC Status: " + Colorate.Horizontal(Colors.blue_to_purple, "Offline", 2), bs) 
-    write(Fore.WHITE + f"\n» [{Fore.CYAN}-{Fore.WHITE}] Current version: " + Colorate.Horizontal(Colors.blue_to_purple, str(version), 2), bs)
-    write(Fore.WHITE + f"\n» [{Fore.GREEN}?{Fore.WHITE}] Don't know what to do? Run " + Colorate.Horizontal(Colors.blue_to_purple, "help", 2), bs)
-    write(Fore.WHITE + "\n» [" +  Colorate.Horizontal(Colors.blue_to_purple, "♥", 2) + f"] {Fore.WHITE}by {kingss}{Fore.WHITE} for {user}", bs)
+        write(Fore.RESET + f"\n» [{Fore.RED}❌{Fore.RESET}] RPC Status: " + Colorate.Horizontal(Colors.blue_to_purple, "Offline", 2), bs) 
+    write(Fore.RESET + f"\n» [{Fore.CYAN}-{Fore.RESET}] Current version: " + Colorate.Horizontal(Colors.blue_to_purple, str(version), 2), bs)
+    write(Fore.RESET + f"\n» [{Fore.GREEN}?{Fore.RESET}] Don't know what to do? Run " + Colorate.Horizontal(Colors.blue_to_purple, "help", 2), bs)
+    write(Fore.RESET + "\n» [" +  Colorate.Horizontal(Colors.blue_to_purple, "♥", 2) + f"] {Fore.RESET}by {kingss}{Fore.RESET} for {user}", bs)
     if appsettings.usingwrite == False: 
         print(" ")
     else: 
         print(" ")
         print(" ")
-    commandline = input(Colorate.Horizontal(Colors.blue_to_purple, "rpc » ", 2) + Fore.WHITE)    
+    commandline = input(Colorate.Horizontal(Colors.blue_to_purple, "rpc » ", 2) + Fore.RESET)    
     consoleMain()    
 
 main()
