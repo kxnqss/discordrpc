@@ -93,8 +93,19 @@ class commands():
     library = "libinstall"
     github = "github"
     settings = "settings"
+    disdeveloperportal = "devportal"
     update = "update"
+    
 
+def developerPortal(): 
+    devportalUrl = "https://discord.com/developers/applications"
+    print(" ")
+    text = (Colorate.Horizontal(Colors.purple_to_blue, "Discord Developer Portal: ", 2))
+    write(Fore.RESET + f"[{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] {text}: {devportalUrl}", bs)
+    print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
+    os.system("pause > nul")
+    main()
+    
 def settings(): 
     print(" ")
     text = (Colorate.Horizontal(Colors.purple_to_blue, "configuration?", 2))
@@ -112,7 +123,6 @@ def githubi():
     text = (Colorate.Horizontal(Colors.purple_to_blue, "GitHub: ", 2))
     n1 = (Colorate.Horizontal(Colors.purple_to_blue, "1", 2))
     write(Fore.RESET + f"[{Fore.GREEN}{verifiedsymbol}{Fore.RESET}] {text}: {github}", bs)
-    write(Fore.RESET + f"\nEnter {n1}{Fore.RESET} to open repository", bs)
     print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
     os.system("pause > nul")
     main()
@@ -166,10 +176,25 @@ def invislaunch():
 def configure(): 
     print(" ")
     text = (Colorate.Horizontal(Colors.purple_to_blue, "configuration?", 2))
-    write(Fore.RESET + f"» [⚙️] Ready for some {text}", bs)
-    time.sleep(1)
+    applicationIDtext = (Colorate.Horizontal(Colors.purple_to_blue, "ApplicationID: ", 2))
+    detailscontentText = (Colorate.Horizontal(Colors.purple_to_blue, "Details Content: ", 2))
+    largeimgText = (Colorate.Horizontal(Colors.purple_to_blue, "Large Image: ", 2))
+    largetextText = (Colorate.Horizontal(Colors.purple_to_blue, "Large Text: ", 2))
+    button1Texttext = (Colorate.Horizontal(Colors.purple_to_blue, "Button 1 Text: ", 2))
+    button1Urltext = (Colorate.Horizontal(Colors.purple_to_blue, "Button 1 URL: ", 2))
+    write(Fore.RESET + f"» [⚙️] Ready for some {text}{Fore.RESET}", bs)
+    print(" ")
+    write(Fore.RESET + f"» {applicationIDtext}{Fore.RESET} Your application ID, you can get it at discord dev portal", bs)
+    write(Fore.RESET + f"» {detailscontentText}{Fore.RESET} Your description", bs)
+    write(Fore.RESET + f"» {largeimgText}{Fore.RESET} Your image (must be uploaded to your application resources)", bs)
+    write(Fore.RESET + f"» {largetextText}{Fore.RESET} Your text", bs)
+    write(Fore.RESET + f"» {button1Texttext}{Fore.RESET} The text of your button", bs)
+    write(Fore.RESET + f"» {button1Urltext}{Fore.RESET} The link of your button", bs)
+    print(" ")
+    time.sleep(1.2)
     os.system("notepad discordrpc.js")
-    time.sleep(1)
+    print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
+    os.system("pause > nul")
     main()
 
 def helpfnc():
@@ -179,6 +204,7 @@ def helpfnc():
     invislaunch = (Colorate.Horizontal(Colors.purple_to_blue, "invislaunch:", 2))
     stop = (Colorate.Horizontal(Colors.purple_to_blue, "stop:", 2))
     libinstall = (Colorate.Horizontal(Colors.purple_to_blue, "libinstall:", 2))
+    devportal = (Colorate.Horizontal(Colors.purple_to_blue, "devportal:", 2))
     github = (Colorate.Horizontal(Colors.purple_to_blue, "github:", 2))
     print(Colorate.Vertical(Colors.purple_to_blue, logos.help, 2))
     write(Fore.RESET + f"[{Fore.CYAN}-{Fore.RESET}] Here's a command list for you! ^^", bs)
@@ -188,6 +214,7 @@ def helpfnc():
     write(Fore.RESET + f"» {invislaunch}{Fore.RESET} launch the program with no cmd, in background!", bs)
     write(Fore.RESET + f"» {stop}{Fore.RESET} quit running cmd in background", bs)
     write(Fore.RESET + f"» {libinstall}{Fore.RESET} install required python libraries", bs)
+    write(Fore.RESET + f"» {devportal}{Fore.RESET} open discord developer portal", bs)
     write(Fore.RESET + f"» {github}{Fore.RESET} open DiscordRPC github repository", bs)
     print(" ")
     print(Fore.RESET + f"[{Fore.RED}!{Fore.RESET}] Waiting for any key..")
@@ -236,6 +263,8 @@ def consoleMain():
         configure() 
     if commandline == commands.invisiblelaunch:
         invislaunch()                             
+    if commandline == commands.disdeveloperportal:
+        developerPortal()
     else:
         print(" ")
         write((Colorate.Horizontal(Colors.purple_to_blue, "This command doesn't exist", 2)), bs)
