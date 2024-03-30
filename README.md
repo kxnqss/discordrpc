@@ -1,5 +1,5 @@
 # discordrpc
-customize your discord profile with beatiful buttons, images, and text 🔥
+dogwater discordrpc client
 
 # How to download 
 All you need is [NodeJS](https://nodejs.org/en/) and [Python](https://www.python.org)
